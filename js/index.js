@@ -1,6 +1,6 @@
 // VARIABLES //////
 let song, binCount, bins, smoothing, fft;
-let canvas, spectrum, w, hSeg, height;
+let canvas, spectrum, wSeg, w, hSeg, height;
 function preload() {
   // add load method with the path to your sound
   // soundFile = loadSound('../../music/Waltz-#2.mp3');
@@ -12,10 +12,10 @@ function setup() {
   canvas = createCanvas(windowWidth, windowHeight);
   canvas.parent('canvas');
   background(30);
-  fill(0);
+  // fill(0);
   stroke(0);
   // SOUND ANALYSIS //
-  binCount = 1024;
+  binCount = 256;
   bins = new Array(binCount);
   smoothing = 0.6;
   fft = new p5.FFT(smoothing, binCount);
@@ -24,19 +24,23 @@ function setup() {
 
 function draw() {
   spectrum = fft.analyze();
-  w = windowWidth;
   for (let i = 1; i < spectrum.length; i++) {
-    w = w - 20;
+
+    // w = random(100,windowWidth);
+    w = windowWidth;
     hSeg = windowHeight/255;
-    h = hSeg * spectrum[i];
+    h = spectrum[i] * 2;
     line(0,0,w,h);
     line(0,0,w/3,h);
     line(w,h,w/3,h);
-    stroke(`rgba(100,${w},200,0.25)`);
-    fill(30);
+    stroke(`rgba(100,${h},200,0.25)`);
   }
 };
 
+const random = function(min,max) {
+  // getting a random integer:
+  return Math.floor(Math.random() * (max - min + 1)) + min;
+};
 
 $(document).ready(function() {
 
