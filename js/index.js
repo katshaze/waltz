@@ -4,7 +4,7 @@ let canvas, spectrum, width, height, wSeg, hSeg, level, size;
 
 function preload() {
   // add load method with the path to your sound
-  song = loadSound('../audio/waltz.mp3');
+  song = loadSound('./audio/waltz.mp3');
 };
 
 function setup() {
