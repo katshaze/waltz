@@ -8,6 +8,26 @@ function preload() {
 };
 
 function setup() {
+  // CHANGE USER CONTROLS TEXT //
+  $('#play-pause').text('Play');
+  $('#stop').text('Stop');
+  // USER CONTROLS FOR PLAYING AUDIO /////////////////////
+  $('#play-pause').on('click', function() {
+    let text = $('#play-pause').text();
+    if (text === 'Play') {
+      song.play();
+
+      $('#play-pause').text('Pause');
+    } else {
+      song.pause();
+      $('#play-pause').text('Play');
+    }
+  });
+  $('#stop').on('click', function() {
+    song.pause();
+    song.currentTime = 0;
+    $('#play-pause').text('Play');
+  })
   // CANVAS //
   canvas = createCanvas(windowWidth, windowHeight); // this sets width & height
   width = windowWidth;
@@ -31,21 +51,5 @@ const random = function(min,max) {
 
 $(document).ready(function() {
 
-  // USER CONTROLS FOR PLAYING AUDIO /////////////////////
-  $('#play-pause').on('click', function() {
-    let text = $('#play-pause').text();
-    if (text === 'Play') {
-      song.play();
 
-      $('#play-pause').text('Pause');
-    } else {
-      song.pause();
-      $('#play-pause').text('Play');
-    }
-  });
-  $('#stop').on('click', function() {
-    song.pause();
-    song.currentTime = 0;
-    $('#play-pause').text('Play');
-  })
 }); // end of doc ready

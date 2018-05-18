@@ -5,7 +5,7 @@ function draw() {
   level = amplitude.getLevel();
   size1 = map(level, 0, 1, 0, newMax);
 
-  fill('rgb(255,230,230)');
+  fill('rgb(255,200,200)');
   ellipse(width/2, height/2, size1, size1);
 
   size2 = map(level, 0,1,0,width/3);
