@@ -5,7 +5,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <link rel="stylesheet" href="css/master.css">
-  <title>waltz</title>
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.10/css/all.css" integrity="sha384-+d0P83n9kaQMCwj8F4RJB66tzIwOKmrdb46+porD/OvrJ+37WqIM7UoBtwHO6Nlg" crossorigin="anonymous">
+  <title>Waltz</title>
   <script src="js/jquery.js"></script>
   <script src="js/index.js"></script>
   <script src="js/audio.js"></script>
@@ -14,14 +15,26 @@
   <script src="js/canvas2.js"></script>
 </head>
 <body>
+  <div id="modal-overlay">
+    <div id="info-modal">
+      <h2 id="info-heading">About</h2>
+      <p>This is an experiment in using the Web Audio API for sound analysis and visualisation by<a class="contact" href="https://github.com/katshaze" target="_blank">Katrina Hayes</a>- a web developer in Sydney.
+      <p>The visualisation works by continually measuring the frequency of Elliot Smith's song, Waltz #2, and uses this data to render a waveform, a frequency bar chart and a square.</p>
+    </div>
+  </div>
   <div class="container">
     <div class="buttons">
       <a id="play-pause">Play</a>
       <a id="stop">Stop</a>
     </div>
+    <div class="listening">
+      <p>Listening to Elliot Smith's song Waltz from the album XO.</p>
+    </div>
+    <i id="info" class="fas fa-info-circle"></i>
     <canvas id="waveform"></canvas>
     <canvas id="bargraph"></canvas>
     <canvas id="deepsounds"></canvas>
+
     <!-- <canvas id="diagonals"></canvas> -->
   </div>
 </body>

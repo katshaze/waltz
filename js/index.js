@@ -40,5 +40,11 @@ $(document).ready(function() {
     audio.song.pause();
     audio.song.currentTime = 0;
     $('#play-pause').text('Play');
-  })
+  });
+  $("#info").click(function() {
+    $('#modal-overlay').fadeIn(200);
+  });
+  $('#modal-overlay').click(function() {
+     $('#modal-overlay').fadeOut(200);
+  });
 }); // end of doc ready
